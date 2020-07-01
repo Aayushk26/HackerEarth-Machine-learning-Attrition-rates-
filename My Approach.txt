@@ -1,0 +1,68 @@
+HackerEarth Machine Learning challenge: Employee Attrition Rate
+My Approach
+Name: Aayush Dinesh Kandpal
+  
+Approach:
+1.Skewness of Target Variable ( Attrition_rate):
+  The value showed a positive skew of around +2.03. It wasnt distributed along the centre.
+
+2. Missing values: In the files uploaded , graphs have been plotted of the percentage of missing values in feature.
+   The missing values were replaced by the mean of the respective feature in that column.
+   I tried using other methods such as median and mode but the results weren't as good as the ones provided by the mean.
+   I used the .fillna option to place the mean instead of using the Simple imputer. It was observed that while using Simple Imputer the 
+   accuracy of the predicted attrition rate dropped slightly.
+
+3. Categorical data and numerical data:
+   In order to make use of the categorical data , I used One Hot Encoding so as to use the categorical data.
+   The column transfer method was used . A total of 47 columns and 7000 rows were obtained after applying encoding the train set 
+   and 46 rows and 7000 columns in the test set( Dropping the Attrition_rate).
+   It was observed that categorical data did not affect the outcome , in fact in my analysis it lowered the accuracy.
+   Some experimentation was done using some catgorical data such as hometown,etc and numerical features that seemed to improve the results.
+   However , in the end I decided to drop the Categorical data from the train set and used only Numerical features to get better results.
+
+4. Feature Engineering: This was the most important part of solving this challenge. Initially , after plotting the correlation matrix 
+   and observing the regression plots (sns.pairplot in the uploaded files) some features were dropped while others were retained 
+   in the train and test set to better the predictions. After thoroughly exploring the dataset, I observed that features that resembled 
+   real life scenarion were a better fit for the curve. My best submission was achieved while dropping and adding features that were  
+   very close to real life ( such as growth rate, time since promotion, pay scale, etc...)
+   Finally some of the numerical data was dropped and my best submmision was achieved.
+   
+   After observing the corrleatrion matric I found that the coorrelations between features and the target variable were very low ( In 
+   the range of -0.03 to +0.03. Hence it was not very easy to pick features. So I used the average as an indicator and 
+   considered the features that were very close to the average ( either above , below on eqaul to). 
+   This paved the way for beter submissions.
+
+Libraries, tools and other methods used:
+1. Numpy
+2.Pandas
+3.Matplotlib
+4.Seaborn
+5.Sci-Kit learn
+6.Regression ( sklearn)
+  Multiple regression
+  Decison tree
+  Random Forest
+  CatBoostRegressor
+  LightGBM
+  SVR
+
+The best submission was achieved by using Multiple regression
+The CatBoostRegressor came a little closer to the results provided by Multiple regression. 
+It was observed that when the learning rate of CatBoostRegressor was lowered progressively starting from 1 till 0.00005 the 
+results improved. The depth was varied from 1 to 15 and the best result was obtained at a depth of 3 running about 20000 iterations.
+
+Initially , I had split the given train set into train1 and test1 to obtain better performance on unseen data ( test data).
+All the above mentioned methoda were applied and it was observed that all regressions did well except the Catboostregressor.
+It was a case of overfiiting 
+I had fit the train1 data to about 99.6 percent accuracy . But when this model was trained on the test set the score came at around 75.
+Hypertuning the model only made it worse in this case .
+
+Finally after observing the pairplot , Multiple regression seemed like a good fit and it was further used.The best submission was 
+obtained by using the simplest of the regression technique.
+
+Thanks.
+Aayush Dinesh Kandpal
+
+
+   
+
