@@ -1,7 +1,6 @@
 HackerEarth Machine Learning challenge: Employee Attrition Rate
 My Approach
-Name: Aayush Dinesh Kandpal
-  
+
 Approach:
 1.Skewness of Target Variable ( Attrition_rate):
   The value showed a positive skew of around +2.03. It wasnt distributed along the centre.
